@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using api.IServices;
+using api.ViewModels;
+using AutoMapper;
 
 namespace api.Controllers
 {
@@ -10,29 +10,20 @@ namespace api.Controllers
     [Route("api/[controller]")]
     public class PeaksController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IMapper _mapper;
+        private readonly IPeakService _peakService;
 
-        private readonly ILogger<PeaksController> _logger;
-
-        public PeaksController(ILogger<PeaksController> logger)
+        public PeaksController(IMapper mapper, IPeakService peakService)
         {
-            _logger = logger;
+            _mapper = mapper;
+            _peakService = peakService;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IList<PeakVm> GetPeaks()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var peaks = _peakService.GetPeaks();
+            return _mapper.Map<IList<PeakVm>>(peaks);
         }
     }
 }
