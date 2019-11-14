@@ -6,8 +6,6 @@ namespace api.Models
     {
         public PeakBaggerContext(DbContextOptions<PeakBaggerContext> options) : base(options) { }
 
-
-
-
+        public DbSet<Peak> Peaks { get; set; }
     }
 }

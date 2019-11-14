@@ -25,8 +25,8 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PeakBaggerContext>(options =>
-                options
-                    .UseNpgsql(Configuration.GetConnectionString("PeakBaggerContext")));
+                options.UseNpgsql(Configuration.GetConnectionString("PeakBaggerContext")));
+                //options.UseNpgsql("Host=localhost;Port=5432;Username=postgres;Password=Blues123;Database=peakbagger;"));
 
             services.AddControllers();
 
