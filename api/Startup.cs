@@ -33,6 +33,8 @@ namespace api
             services.AddAutoMapper(typeof(PeakVm));
 
             services.AddScoped<IPeakService, PeakService>();
+
+            services.AddSpaStaticFiles(staticFiles => staticFiles.RootPath = "wwwroot");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +52,15 @@ namespace api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpaStaticFiles();
+            app.UseSpa(spa => 
+            {
+                if (env.IsDevelopment())
+                {
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:8080/");
+                }
             });
         }
     }
