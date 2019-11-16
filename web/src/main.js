@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import BootstrapVue from 'bootstrap-vue'
 
+Vue.use(BootstrapVue)
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 
