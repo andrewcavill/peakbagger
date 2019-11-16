@@ -1,12 +1,21 @@
 <template>
     <div>
-        <H1>Peaks</H1>
-        {{ peaks }}<br>
-        <ul>
-            <li v-for="peak in peaks" v-bind:key="peak.id">
-                {{ peak.id }}, {{ peak.name }}
-            </li>
-        </ul>
+        <b-card-group columns v-if="peaks">
+            <b-card
+            no-body
+            v-for="peak in peaks"
+            :key="peak.id"
+            border-variant="primary"
+            align="center"
+            >
+                <b-card-header header-bg-variant="primary" header-text-variant="white">
+                    <b>{{ peak.name }}</b>
+                </b-card-header>
+                <b-card-body>
+                    {{ peak.location }}, {{ peak.region.name }}
+                </b-card-body>
+            </b-card>
+        </b-card-group>
     </div>
 </template>
 
