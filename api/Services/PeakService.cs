@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using api.IServices;
 using api.Models;
 
@@ -15,7 +16,10 @@ namespace api.Services
 
         public IList<Peak> GetPeaks()
         {
-            return _context.Peaks.ToList();
+            return _context.Peaks
+                .Include(x => x.Region)
+                .Include(x => x.Grade)
+                .ToList();
         }
     }
 }

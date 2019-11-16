@@ -9,6 +9,12 @@ namespace api.ViewModels
 
         public string Name { get; set; }
 
+        public string Location { get; set; }
+
+        public RegionVm Region { get; set; }
+
+        public GradeVm Grade { get; set; }
+
         public class PeakVmProfile : Profile
         {
             public PeakVmProfile()

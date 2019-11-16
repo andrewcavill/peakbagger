@@ -39,5 +39,6 @@ INSERT INTO "Grades" VALUES (2, 'Medium');
 INSERT INTO "Grades" VALUES (3, 'Hard');
 
 -- Insert peaks
+INSERT INTO "Peaks" ("Name", "Location", "RegionId", "GradeId") VALUES ('Manaia', 'Whangarei Heads', 1, 2);
 INSERT INTO "Peaks" ("Name", "Location", "RegionId", "GradeId") VALUES ('Pirongia', 'Pirongia Forest Park', 2, 2);
-
+INSERT INTO "Peaks" ("Name", "Location", "RegionId", "GradeId") VALUES ('Rangitoto', 'Rangitoto Island', 3, 1);
