@@ -9,8 +9,6 @@ namespace api.ViewModels
 
         public string Code { get; set; }
 
-        public string Image => "https://localhost:5001/images/"+Code+".jpg";
-
         public string Name { get; set; }
 
         public string Location { get; set; }

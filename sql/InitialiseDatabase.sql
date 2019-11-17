@@ -12,6 +12,7 @@ CREATE TABLE "Regions" (
 -- Create table for grades
 CREATE TABLE "Grades" (
 "Id" INTEGER PRIMARY KEY, 
+"Code" CHARACTER VARYING NOT NULL,
 "Name" CHARACTER VARYING NOT NULL
 );
 
@@ -35,9 +36,9 @@ INSERT INTO "Regions" VALUES (2, 'Waikato');
 INSERT INTO "Regions" VALUES (3, 'Auckland');
 
 -- Insert grades
-INSERT INTO "Grades" VALUES (1, 'Easy');
-INSERT INTO "Grades" VALUES (2, 'Medium');
-INSERT INTO "Grades" VALUES (3, 'Hard');
+INSERT INTO "Grades" VALUES (1, 'Easy', 'Easy');
+INSERT INTO "Grades" VALUES (2, 'Medium', 'Medium');
+INSERT INTO "Grades" VALUES (3, 'Hard', 'Hard');
 
 -- Insert peaks
 INSERT INTO "Peaks" ("Code", "Name", "Location", "RegionId", "GradeId") VALUES ('Manaia', 'Manaia', 'Whangarei Heads', 1, 2);

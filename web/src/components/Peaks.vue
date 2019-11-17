@@ -1,21 +1,33 @@
 <template>
     <div>
+
         <b-card-group deck v-if="peaks">
+
             <b-card
-            no-body
             class="border-0"
-            :img-src="peak.image"
+            :img-src="getImageUrl(peak)"
             :img-alt="peak.name"
             img-top
             v-for="peak in peaks"
             :key="peak.id"
             >
-              <b-card-body>
+
+              <b-card-text>
+
                   <div class="name"><b>{{ peak.name }}</b></div>
                   <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
-              </b-card-body>
+
+                  <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
+                  <b-badge variant="warning" v-if="peak.grade.code == 'Medium'">Medium</b-badge>
+                  <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
+
+
+              </b-card-text>
+
             </b-card>
+
         </b-card-group>
+
     </div>
 </template>
 
@@ -35,6 +47,9 @@ export default {
         .then(
           peaks => this.peaks = peaks
         );
+    },
+    getImageUrl(peak) {
+      return "https://localhost:5001/images/"+peak.code+".jpg";
     }
   },
   mounted() {
