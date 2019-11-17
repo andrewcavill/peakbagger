@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-navbar id="menubar" toggleable="lg" type="dark" variant="info">
+        <b-navbar id="menubar" toggleable="lg" type="dark">
             <b-navbar-brand href="#">NavBar</b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -48,5 +48,6 @@ export default {
 <style>
 #menubar {
     margin-bottom: 10px;
+    background-color: #284C35;
 }
 </style>

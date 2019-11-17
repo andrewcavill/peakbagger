@@ -18,6 +18,7 @@ CREATE TABLE "Grades" (
 -- Create tables for peaks
 CREATE TABLE "Peaks" (
 "Id" SERIAL PRIMARY KEY, 
+"Code" CHARACTER VARYING NOT NULL, 
 "Name" CHARACTER VARYING NOT NULL, 
 "Location" CHARACTER VARYING NOT NULL,
 "RegionId" INTEGER NOT NULL REFERENCES "Regions"("Id"),
@@ -39,6 +40,6 @@ INSERT INTO "Grades" VALUES (2, 'Medium');
 INSERT INTO "Grades" VALUES (3, 'Hard');
 
 -- Insert peaks
-INSERT INTO "Peaks" ("Name", "Location", "RegionId", "GradeId") VALUES ('Manaia', 'Whangarei Heads', 1, 2);
-INSERT INTO "Peaks" ("Name", "Location", "RegionId", "GradeId") VALUES ('Pirongia', 'Pirongia Forest Park', 2, 2);
-INSERT INTO "Peaks" ("Name", "Location", "RegionId", "GradeId") VALUES ('Rangitoto', 'Rangitoto Island', 3, 1);
+INSERT INTO "Peaks" ("Code", "Name", "Location", "RegionId", "GradeId") VALUES ('Manaia', 'Manaia', 'Whangarei Heads', 1, 2);
+INSERT INTO "Peaks" ("Code", "Name", "Location", "RegionId", "GradeId") VALUES ('Pirongia', 'Pirongia', 'Pirongia Forest Park', 2, 2);
+INSERT INTO "Peaks" ("Code", "Name", "Location", "RegionId", "GradeId") VALUES ('Rangitoto', 'Rangitoto', 'Rangitoto Island', 3, 1);

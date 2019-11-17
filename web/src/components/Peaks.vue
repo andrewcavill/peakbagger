@@ -1,19 +1,19 @@
 <template>
     <div>
-        <b-card-group columns v-if="peaks">
+        <b-card-group deck v-if="peaks">
             <b-card
             no-body
+            class="border-0"
+            :img-src="peak.image"
+            :img-alt="peak.name"
+            img-top
             v-for="peak in peaks"
             :key="peak.id"
-            border-variant="primary"
-            align="center"
             >
-                <b-card-header header-bg-variant="primary" header-text-variant="white">
-                    <b>{{ peak.name }}</b>
-                </b-card-header>
-                <b-card-body>
-                    {{ peak.location }}, {{ peak.region.name }}
-                </b-card-body>
+              <b-card-body>
+                  <div class="name"><b>{{ peak.name }}</b></div>
+                  <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
+              </b-card-body>
             </b-card>
         </b-card-group>
     </div>
