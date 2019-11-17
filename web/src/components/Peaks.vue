@@ -49,7 +49,7 @@ export default {
         );
     },
     getImageUrl(peak) {
-      return "https://localhost:5001/images/"+peak.code+".jpg";
+      return "/images/"+peak.code+".jpg";
     }
   },
   mounted() {
