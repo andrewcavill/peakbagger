@@ -4,6 +4,7 @@
         <b-card-group deck v-if="peaks">
 
             <b-card
+            no-body=""
             class="border-0"
             :img-src="getImageUrl(peak)"
             :img-alt="peak.name"
@@ -12,17 +13,32 @@
             :key="peak.id"
             >
 
-              <b-card-text>
+              <b-card-body>
 
-                  <div class="name"><b>{{ peak.name }}</b></div>
-                  <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
+                <div class="name">{{ peak.name }}</div>
 
+                <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
+
+                <div class="elevation">750 metres</div>
+
+                <div class="grade">
                   <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
                   <b-badge variant="warning" v-if="peak.grade.code == 'Medium'">Medium</b-badge>
                   <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
+                </div>
 
+                <div class="row mt-3">
+                  <div class="col-sm">
+                    <b-button class="button" style="width:100%" href="#" size="sm">More</b-button>
+                  </div>
+                  <div class="col-sm">
+                    <b-button class="button" style="width:100%" href="#" size="sm">Bag It</b-button>
+                  </div>
+                </div>
 
-              </b-card-text>
+              </b-card-body>
+
+              
 
             </b-card>
 
@@ -59,3 +75,17 @@ export default {
 
 </script>
 
+<style>
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.button {
+  background-color: #284C35;
+  border-color: #284C35;
+}
+.button:hover {
+  background-color: #46865e;
+  border-color: #46865e;
+}
+</style>
