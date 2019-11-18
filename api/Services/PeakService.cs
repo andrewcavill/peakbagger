@@ -21,5 +21,14 @@ namespace api.Services
                 .Include(x => x.Grade)
                 .ToList();
         }
+
+        public Peak GetPeak(int peakId)
+        {
+            return _context.Peaks
+                .Where(x => x.Id == peakId)
+                .Include(x => x.Region)
+                .Include(x => x.Grade)
+                .SingleOrDefault();
+        }
     }
 }

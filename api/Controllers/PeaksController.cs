@@ -25,5 +25,13 @@ namespace api.Controllers
             var peaks = _peakService.GetPeaks();
             return _mapper.Map<IList<PeakVm>>(peaks);
         }
+
+        [HttpGet]
+        [Route("{peakId}")]
+        public PeakVm GetPeak(int peakId)
+        {
+            var peak = _peakService.GetPeak(peakId);
+            return _mapper.Map<PeakVm>(peak);
+        }
     }
 }

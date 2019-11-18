@@ -6,5 +6,7 @@ namespace api.IServices
     public interface IPeakService
     {
         IList<Peak> GetPeaks();
+
+        Peak GetPeak(int peakId);
     }
 }
