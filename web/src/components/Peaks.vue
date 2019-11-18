@@ -1,58 +1,60 @@
 <template>
 
-        <b-card-group deck v-if="peaks">
+  <b-card-group deck v-if="peaks">
 
-            <b-card
-            no-body
-            class="border-0"
-            :img-src="getImageUrl(peak)"
-            :img-alt="peak.name"
-            img-top
-            img-fluid
-            v-for="peak in peaks"
-            :key="peak.id"
-            >
+    <b-card
+      no-body
+      class="border-0"
+      :img-src="getImageUrl(peak)"
+      :img-alt="peak.name"
+      img-top
+      img-fluid
+      v-for="peak in peaks"
+      :key="peak.id"
+      >
 
-              <b-card-body>
+      <b-card-body>
 
-                <div class="name">{{ peak.name }}</div>
+        <div class="name">{{ peak.name }}</div>
 
-                <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
+        <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
 
-                <div class="elevation">750 metres</div>
+        <div class="elevation">750 metres</div>
 
-                <div class="grade">
-                  <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
-                  <b-badge variant="warning" v-if="peak.grade.code == 'Medium'">Medium</b-badge>
-                  <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
-                </div>
+        <div class="grade">
+          <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
+          <b-badge variant="warning" v-if="peak.grade.code == 'Medium'">Medium</b-badge>
+          <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
+        </div>
 
-              </b-card-body>
+      </b-card-body>
 
-              <b-card-footer>
+      <b-card-footer>
 
-                <div class="row">
-                  <div class="col-sm">
-                    <b-button style="width:100%" href="#" size="sm">View</b-button>
-                  </div>
-                  <div class="col-sm">
-                    <b-button style="width:100%" href="#" size="sm">Bag</b-button>
-                  </div>
-                </div>
+        <div class="row">
+          <div class="col-sm">
+            <router-link :to="'/peaks/'+peak.id"><b-button style="width:100%" size="sm">View</b-button></router-link>
+            
+          </div>
+          <div class="col-sm">
+            <b-button style="width:100%" href="#" size="sm">Bag</b-button>
+          </div>
+        </div>
 
-              </b-card-footer>
+      </b-card-footer>
 
-            </b-card>
+    </b-card>
 
-        </b-card-group>
+  </b-card-group>
 
 </template>
 
 <script>
+
 import PeakService from "@/services/PeakService";
 
 export default {
-  name: "TodoLists",
+  name: "Peaks",
   data() {
     return {
       peaks: null

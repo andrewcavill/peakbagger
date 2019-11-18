@@ -1,18 +1,24 @@
+// Vue
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+
+// Routes - see router.js
+import router from './router'
+
+// Main app
 import App from './App.vue'
+
+// Axios for calling REST apis
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
+
+// Bootstrap for styling & components
 import BootstrapVue from 'bootstrap-vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
-
 Vue.use(BootstrapVue)
-Vue.use(VueRouter)
-Vue.use(VueAxios, axios)
-
-Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
+  router
 }).$mount('#app')

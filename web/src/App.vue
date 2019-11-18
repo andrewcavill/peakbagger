@@ -2,19 +2,17 @@
   <div id="app">
     <b-container>
       <MenuBar/>
-      <Peaks/>
+      <router-view/>
     </b-container>
   </div>
 </template>
 
 <script>
-import Peaks from './components/Peaks.vue'
 import MenuBar from './components/MenuBar.vue'
 
 export default {
   name: 'app',
   components: {
-    Peaks,
     MenuBar
   }
 }
