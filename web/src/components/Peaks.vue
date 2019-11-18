@@ -1,14 +1,14 @@
 <template>
-    <div>
 
         <b-card-group deck v-if="peaks">
 
             <b-card
-            no-body=""
+            no-body
             class="border-0"
             :img-src="getImageUrl(peak)"
             :img-alt="peak.name"
             img-top
+            img-fluid
             v-for="peak in peaks"
             :key="peak.id"
             >
@@ -27,24 +27,25 @@
                   <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
                 </div>
 
-                <div class="row mt-3">
+              </b-card-body>
+
+              <b-card-footer>
+
+                <div class="row">
                   <div class="col-sm">
-                    <b-button class="button" style="width:100%" href="#" size="sm">More</b-button>
+                    <b-button style="width:100%" href="#" size="sm">View</b-button>
                   </div>
                   <div class="col-sm">
-                    <b-button class="button" style="width:100%" href="#" size="sm">Bag It</b-button>
+                    <b-button style="width:100%" href="#" size="sm">Bag</b-button>
                   </div>
                 </div>
 
-              </b-card-body>
-
-              
+              </b-card-footer>
 
             </b-card>
 
         </b-card-group>
 
-    </div>
 </template>
 
 <script>
@@ -80,12 +81,18 @@ export default {
   font-size: 1.2em;
   font-weight: bold;
 }
-.button {
-  background-color: #284C35;
-  border-color: #284C35;
+.card-footer {
+  background-color: white !important;
+  border-width: 0 !important;
 }
-.button:hover {
-  background-color: #46865e;
-  border-color: #46865e;
+.btn-secondary  {
+  background-color: white !important;
+  border-color: #46865e !important;
+  color: #46865e !important;
+}
+.btn-secondary:hover {
+  background-color: #46865e !important;
+  border-color: #46865e !important;
+  color: white !important;
 }
 </style>
