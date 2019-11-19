@@ -17,9 +17,9 @@
 
         <div class="name">{{ peak.name }}</div>
 
-        <div class="location">{{ peak.location }}, {{ peak.region.name }}</div>
+        <div class="area">{{ peak.area }}, {{ peak.region.name }}</div>
 
-        <div class="elevation">750 metres</div>
+        <div class="elevation">{{ peak.elevation }} metres</div>
 
         <div class="grade">
           <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
@@ -78,23 +78,29 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+
 .name {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
+  color: #31798e;
 }
+
 .card-footer {
   background-color: white !important;
   border-width: 0 !important;
 }
+
 .btn-secondary  {
   background-color: white !important;
-  border-color: #46865e !important;
-  color: #46865e !important;
+  border-color: #31798e !important;
+  color: #31798e !important;
 }
+
 .btn-secondary:hover {
-  background-color: #46865e !important;
-  border-color: #46865e !important;
+  background-color: #5085a5 !important;
+  border-color: #5085a5 !important;
   color: white !important;
 }
+
 </style>

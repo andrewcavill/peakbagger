@@ -8,10 +8,18 @@ namespace api.Models
 
         public string Name { get; set; }
 
-        public string Location { get; set; }
+        public string Area { get; set; }
+
+        public int Elevation { get; set; }
 
         public Region Region { get; set; }
 
         public Grade Grade { get; set; }
+
+        public string Duration { get; set; }
+
+        public string Access { get; set; }
+
+        public string Description { get; set; }
     }
 }

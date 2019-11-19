@@ -48,6 +48,6 @@ export default {
 <style>
 #menubar {
     margin-bottom: 10px;
-    background-color: #46865e;
+    background-color: #687864;
 }
 </style>
