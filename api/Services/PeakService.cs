@@ -28,6 +28,7 @@ namespace api.Services
                 .Where(x => x.Id == peakId)
                 .Include(x => x.Region)
                 .Include(x => x.Grade)
+                .Include(x => x.Links)
                 .SingleOrDefault();
         }
     }

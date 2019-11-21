@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using api.Models;
 
@@ -28,6 +29,8 @@ namespace api.ViewModels
         public string Access { get; set; }
 
         public string Description { get; set; }
+
+        public IList<LinkVm> Links { get; set; }
 
         public class PeakVmProfile : Profile
         {

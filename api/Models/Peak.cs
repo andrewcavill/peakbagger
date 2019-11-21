@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace api.Models
 {
     public class Peak
@@ -25,5 +27,7 @@ namespace api.Models
         public string Access { get; set; }
 
         public string Description { get; set; }
+
+        public List<Link> Links { get; set; }
     }
 }
