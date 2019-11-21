@@ -15,6 +15,10 @@ namespace api.ViewModels
 
         public int Elevation { get; set; }
 
+        public decimal Latitude  { get; set; }
+
+        public decimal Longitude  { get; set; }
+
         public RegionVm Region { get; set; }
 
         public GradeVm Grade { get; set; }

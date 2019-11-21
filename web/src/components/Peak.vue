@@ -19,11 +19,14 @@
           {{ peak.elevation }} metres
         </div>
 
+        <div class="elevation">
+          <label>Lat/Long:</label>
+          {{ peak.latitude }} / {{ peak.longitude }} metres
+        </div>
+
         <div class="grade">
           <label>Grade:</label>
-          <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
-          <b-badge variant="warning" v-if="peak.grade.code == 'Medium'">Medium</b-badge>
-          <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
+          <b-badge :variant="getGradeBadgeVariant(peak.grade)">{{peak.grade.name}}</b-badge>
         </div>
 
         <div class="duration">
@@ -41,24 +44,6 @@
           {{ peak.description }}
         </div>
 
-        <div class="location">
-          <label class="block">Location:</label>
-          <table>
-            <tr>
-              <td>NZ Topo 50:</td>
-              <td>BH34 58 667</td>
-            </tr>
-            <tr>
-              <td>NZTM Grid Ref:</td>
-              <td>E1805837 N5666740</td>
-            </tr>
-            <tr>
-              <td>Lat/Long:</td>
-              <td>-39.124201 175.381136</td>
-            </tr>
-          </table>
-        </div>
-
         <div class="links">
           <label>Links:</label>
 
@@ -71,9 +56,31 @@
         
       </b-col>
 
-      <b-col sm="6">
+      <b-col sm="6" class="text-center">
 
-        <img class="photo" :src="getImageUrl(peak)">
+        <div>
+          <img class="photo" :src="getPhotoImageUrl(peak)">
+        </div>
+
+        <div class="topomap">
+          <iframe 
+            width="300" 
+            height="300" 
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0" 
+            :src="getMapImageUrl(peak)">
+          </iframe>
+          <br />
+          <small>
+            <a target="_blank" 
+              :href="getMapLinkUrl(peak)" 
+              style="text-align:left">
+              View Larger Topographic Map
+            </a>
+          </small>
+        </div>
 
       </b-col>
 
@@ -102,8 +109,19 @@ export default {
           peak => this.peak = peak
         );
     },
-    getImageUrl(peak) {
+    getPhotoImageUrl(peak) {
       return "/images/"+peak.code+".jpg";
+    },
+    getMapImageUrl(peak) {
+      return "https://www.topomap.co.nz/NZTopoMapEmbedded?v=2&ll="+peak.latitude+","+peak.longitude+"&z=14";
+    },
+    getMapLinkUrl(peak) {
+      return "https://www.topomap.co.nz/NZTopoMap?v=2&ll="+peak.latitude+","+peak.longitude+"&z=14";
+    },
+    getGradeBadgeVariant(grade) {
+      return grade.id == 1 ? 'success' :
+             grade.id == 2 ? 'warning' :
+             'danger';
     }
   },
   mounted() {
@@ -147,7 +165,7 @@ label.block {
 
 .photo {
   width: 100%; 
-  max-width:600px;
+  margin-bottom: 20px;
 }
 
 </style>

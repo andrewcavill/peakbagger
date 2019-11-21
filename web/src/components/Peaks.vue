@@ -22,9 +22,7 @@
         <div class="elevation">{{ peak.elevation }} metres</div>
 
         <div class="grade">
-          <b-badge variant="success" v-if="peak.grade.code == 'Easy'">Easy</b-badge>
-          <b-badge variant="warning" v-if="peak.grade.code == 'Medium'">Medium</b-badge>
-          <b-badge variant="danger" v-if="peak.grade.code == 'Hard'">Hard</b-badge>
+          <b-badge :variant="getGradeBadgeVariant(peak.grade)">{{peak.grade.name}}</b-badge>
         </div>
 
       </b-card-body>
@@ -69,6 +67,11 @@ export default {
     },
     getImageUrl(peak) {
       return "/images/"+peak.code+".jpg";
+    },
+    getGradeBadgeVariant(grade) {
+      return grade.id == 1 ? 'success' :
+             grade.id == 2 ? 'warning' :
+             'danger';
     }
   },
   mounted() {

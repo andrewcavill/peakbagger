@@ -12,6 +12,10 @@ namespace api.Models
 
         public int Elevation { get; set; }
 
+        public decimal Latitude  { get; set; }
+
+        public decimal Longitude  { get; set; }
+
         public Region Region { get; set; }
 
         public Grade Grade { get; set; }
